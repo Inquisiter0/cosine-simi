@@ -10,7 +10,7 @@ app = Flask(__name__, template_folder="movies_templates", static_folder="movies_
 movies_path = 'datasets/movies.csv'  
 movies = pd.read_csv(movies_path)
 # Limit the dataset to a smaller subset for testing
-#movies = pd.read_csv(movies_path).head(11000)  # Adjust the number based on available memory
+movies = pd.read_csv(movies_path).head(60000)  # Adjust the number based on available memory
 
 # Handle missing or empty genres and prepare data for TF-IDF
 movies['genres'] = movies['genres'].fillna('').apply(lambda x: ' '.join(x.split('|')))
